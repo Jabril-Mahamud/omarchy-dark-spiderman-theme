@@ -19,30 +19,27 @@ or pick one from `omarchy theme bg-switcher`.
 
 ## What's in here
 
-`colors.toml` is the palette. Omarchy renders Alacritty, Foot, Ghostty, Kitty,
-Hyprland, Neovim, btop, Chromium, Helix, VS Code and the shell from it via its own
-templates, so this repo does not ship those files — a theme installed from a git
-repo cannot supply Lua, a terminal config or `vscode.json` anyway.
+Built for Omarchy 4 (Quattro). `colors.toml` is the palette and does almost all
+the work: Omarchy renders Hyprland (`hyprland.lua`, `gum_env.lua`), Neovim, the
+Quickshell bar and lock screen, Alacritty, Foot, Ghostty, Kitty, btop, Helix,
+Chromium and VS Code from it through its own templates on install.
 
-Everything else here is a config Omarchy has no template for:
+A theme installed from a git repo deliberately cannot ship `*.lua`, a terminal
+config or `vscode.json` — those name programs that get launched, so Omarchy
+generates them from the palette instead. That is why they are not in here.
 
-| File | App |
-|------|-----|
-| `hyprlock.conf` | Hyprlock |
-| `mako.ini` | Mako notifications |
-| `swayosd.css` | SwayOSD |
-| `waybar.css` | Waybar |
-| `walker.css` | Walker |
-| `wofi.css` | Wofi |
-| `zellij.kdl` | Zellij |
-| `warp.yaml` | Warp |
-| `vencord.theme.css` | Discord (Vencord / Vesktop) |
-| `aether.zed.json` | Zed |
-| `icons.theme` | GTK icon theme |
+That leaves:
+
+| File | Consumer |
+|------|----------|
+| `colors.toml` | everything above |
+| `backgrounds/` | `omarchy theme bg next`, background switcher |
+| `icons.theme` | `omarchy-theme-set-gnome` |
+| `vencord.theme.css` | Discord (Vencord / Vesktop), wired up manually — see below |
 
 ### Discord
 
-`vencord.theme.css` is not applied automatically. Link it once and it follows
+`vencord.theme.css` is not applied by Omarchy. Link it once and it follows
 whatever Omarchy theme is active:
 
 ```bash
@@ -50,6 +47,17 @@ ln -sfn ~/.local/state/omarchy/current/theme/vencord.theme.css ~/.config/vesktop
 ```
 
 Then enable `omarchy.css` under Vencord → Themes.
+
+It is a child of [base16-discord](https://github.com/imbypass/base16-Discord)
+(MIT) with two fixes worth stealing if you build one:
+
+- `--base01`–`--base04` are set explicitly. The parent derives them as
+  `color-mix(--color00, white)`, which goes flat neutral grey when your
+  background is pure black.
+- The muted text roles (`--text-muted`, `--channels-default`, `--text-tertiary`)
+  are pulled off `--base03`, which the parent also spends on surfaces. At a
+  surface-appropriate value they land at 1.4:1 and the channel and DM lists are
+  unreadable; they now sit at 6.1:1.
 
 ## Wallpapers
 
