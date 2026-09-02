@@ -67,3 +67,20 @@
     --input-placeholder-text: #8f6d71 !important;
     --channel-text-area-placeholder: #8f6d71 !important;
 }
+
+/* Badge legibility. The parent wires --white to the ANSI magenta slot and the
+   number badge's text to --base05, which was fine when the badge backgrounds
+   were pink and grey. With --base08 and --base0D moved onto the suit red they
+   are red-on-red: 1.27:1 for filled brand buttons, 1.16:1 for the count badge.
+   --white goes back to being a white; the red count badge takes black text,
+   which is 6.9:1 against it. */
+:root {
+    --white: #F4EEE3 !important;
+    --white-100: #F4EEE3 !important;
+    --white-200: #F4EEE3 !important;
+    --white-500: #F4EEE3 !important;
+}
+
+[class*="numberBadge"] {
+    color: #000000 !important;
+}
