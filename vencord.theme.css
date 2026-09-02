@@ -1,31 +1,33 @@
 /**
 * @name Dark Spiderman
 * @author Jabril Mahamud
-* @version 0.2.0
-* @description Black and crimson Discord theme for the Dark Spiderman Omarchy theme.
+* @version 0.3.0
+* @description Black and Marvel-red Discord theme for the Dark Spiderman Omarchy theme.
 * @source https://github.com/imbypass/base16-Discord
 **/
 
 /* import the parent */
 @import url('https://imbypass.github.io/base16-discord/omarchy-discord.theme.css');
 
+/* Mirrors colors.toml in ANSI order. Keep the two in sync by hand: Omarchy has
+   no template for a Vencord theme, so nothing regenerates this from the palette. */
 :root {
-    --color00: #000000;
-    --color01: #c47e72;
-    --color02: #f5ae77;
-    --color03: #ffd59d;
-    --color04: #ad637c;
-    --color05: #ea8892;
-    --color06: #ffc766;
-    --color07: #F4EEE3;
-    --color08: #686163;
-    --color09: #e58d7f;
-    --color10: #ffbe74;
-    --color11: #ffd18a;
-    --color12: #cc7191;
-    --color13: #ff94a2;
-    --color14: #ffd95a;
-    --color15: #fff2ef;
+    --color00: #000000;  /* background        */
+    --color01: #E62429;  /* red               */
+    --color02: #7fb069;  /* green             */
+    --color03: #ffc94d;  /* yellow            */
+    --color04: #4A6FD4;  /* blue              */
+    --color05: #e05a7a;  /* magenta           */
+    --color06: #4fb3bf;  /* cyan              */
+    --color07: #F4EEE3;  /* foreground        */
+    --color08: #8a7276;  /* muted             */
+    --color09: #FF3B3F;  /* bright red        */
+    --color10: #9ecb8a;  /* bright green      */
+    --color11: #ffd97a;  /* bright yellow     */
+    --color12: #6B8BE8;  /* bright blue       */
+    --color13: #ff7d99;  /* bright magenta    */
+    --color14: #6fd0da;  /* bright cyan       */
+    --color15: #f7f2ea;  /* bright foreground */
 }
 
 /* The parent derives base01-04 as color-mix(--color00, white). With a pure
@@ -35,9 +37,18 @@
 :root {
     --base00: #000000;  /* server rail, sidebar */
     --base01: #0b0405;  /* chat background */
-    --base02: #1a0a0d;  /* message hover, mentions, floating panels */
+    --base02: #1a0a0b;  /* message hover, mentions, floating panels */
     --base03: #3a1f24;  /* accents, brand surfaces, dividers */
     --base04: #c9a9a3;  /* channel icons, headers, secondary text */
+}
+
+/* base08 is Discord's negative/error text and base0D its brand colour: links,
+   filled primary buttons, checkboxes. The parent wires them to the ANSI muted
+   and bright-magenta slots, which lands errors on a grey and the brand on pink.
+   Point them at the suit instead. */
+:root {
+    --base08: #FF5A57 !important;  /* errors, negative text */
+    --base0D: #E62429 !important;  /* links, brand buttons  */
 }
 
 /* The parent spends --base03 on two incompatible jobs: dark surfaces
