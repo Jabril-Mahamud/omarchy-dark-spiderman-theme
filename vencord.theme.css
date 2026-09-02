@@ -1,8 +1,8 @@
 /**
-* @name base16 Discord
-* @author @bypass_
-* @version 0.1.0
-* @description Built using Aether and Pywal
+* @name Dark Spiderman
+* @author Jabril Mahamud
+* @version 0.2.0
+* @description Black and crimson Discord theme for the Dark Spiderman Omarchy theme.
 * @source https://github.com/imbypass/base16-Discord
 **/
 
@@ -26,4 +26,16 @@
     --color13: #ff94a2;
     --color14: #ffd95a;
     --color15: #fff2ef;
+}
+
+/* The parent derives base01-04 as color-mix(--color00, white). With a pure
+   black background that yields flat neutral greys, so every surface reads the
+   same and channel names go dim. Set the ramp explicitly instead: warm
+   near-blacks for the surfaces, a readable warm tone for header/icon text. */
+:root {
+    --base00: #000000;  /* server rail, sidebar */
+    --base01: #0b0405;  /* chat background */
+    --base02: #1a0a0d;  /* message hover, mentions, floating panels */
+    --base03: #3a1f24;  /* accents, brand surfaces, dividers */
+    --base04: #c9a9a3;  /* channel icons, headers, secondary text */
 }
