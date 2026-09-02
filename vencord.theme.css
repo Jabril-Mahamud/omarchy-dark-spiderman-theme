@@ -39,3 +39,20 @@
     --base03: #3a1f24;  /* accents, brand surfaces, dividers */
     --base04: #c9a9a3;  /* channel icons, headers, secondary text */
 }
+
+/* The parent spends --base03 on two incompatible jobs: dark surfaces
+   (--background-accent, --input-border, dividers) and muted text
+   (--channels-default, --text-muted, --text-tertiary, placeholders). A value
+   dark enough to work as a surface on a black background sits at 1.4:1 as
+   text, which is what makes the DM and channel lists unreadable. Keep base03
+   for the surfaces and give the text roles their own tone: #a3868a is 6.1:1
+   against the chat background, so it clears WCAG AA.
+   !important and source order beat the parent's .theme-dark rules. */
+:root {
+    --channels-default: #a3868a !important;
+    --text-muted: #a3868a !important;
+    --text-tertiary: #a3868a !important;
+    --interactive-muted: #8f6d71 !important;
+    --input-placeholder-text: #8f6d71 !important;
+    --channel-text-area-placeholder: #8f6d71 !important;
+}
