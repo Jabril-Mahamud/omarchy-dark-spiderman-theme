@@ -84,3 +84,14 @@
 [class*="numberBadge"] {
     color: #000000 !important;
 }
+
+/* Unread pill text. The parent colours .unreadPill with --base01 and
+   .unreadPull with --base02 but never sets their background, so Discord fills
+   it from --bg-brand (#3a1f24) or --brand-500 (#E62429). Near-black text on
+   either is 1.4:1 at best and 1.0:1 at worst. Cream is the only value that
+   clears both (13:1 and 3.9:1). The count badge is not included here: its
+   background is the lighter --base08, where black wins instead. */
+[class*="unreadPill"],
+[class*="unreadPull"] {
+    color: #F4EEE3 !important;
+}
